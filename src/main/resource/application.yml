@@ -1,0 +1,30 @@
+server:
+  port: 8088
+  display-name: VideoService
+  context-path: /videoservice
+  jsp-servlet:
+    init-parameters:
+      development: true
+  session:
+    timeout: 1800
+  #tomcat配置
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    max-connections: 20000
+    additional-tld-skip-patterns: "*.jar"
+  # 后台调用服务出现异常时是否返回堆栈信息
+  error:
+    include-stacktrace: always
+
+spring:
+  application:
+    name: ${server.display-name}
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+    date-format: yyyy-MM-dd HH:mm:ss
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
